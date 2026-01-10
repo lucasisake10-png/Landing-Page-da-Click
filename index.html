@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click | Estratégias de Venda High-Ticket</title>
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -27,11 +25,13 @@
         overflow-x: hidden;
       }
 
+      /* Custom Scrollbar */
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: #000; }
       ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
       ::-webkit-scrollbar-thumb:hover { background: var(--primary-purple); }
 
+      /* Glow Effects */
       .glow-purple {
         box-shadow: 0 0 50px -10px rgba(147, 51, 234, 0.4);
       }
@@ -40,11 +40,13 @@
         text-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
       }
 
+      /* Typography Helpers */
       .text-outline {
         -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
         color: transparent;
       }
 
+      /* Glassmorphism */
       .glass {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(12px);
@@ -52,6 +54,7 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      /* Logo Triangle Motif */
       .triangle-right {
         width: 0;
         height: 0;
@@ -61,6 +64,7 @@
         display: inline-block;
       }
 
+      /* Animations */
       @keyframes triangle-pulse {
         0%, 100% { transform: translateX(0) scale(1); opacity: 0.8; }
         50% { transform: translateX(4px) scale(1.1); opacity: 1; }
@@ -70,6 +74,7 @@
         animation: triangle-pulse 3s ease-in-out infinite;
       }
 
+      /* Buttons */
       .btn-premium {
         position: relative;
         overflow: hidden;
@@ -94,6 +99,7 @@
         left: 100%;
       }
 
+      /* Reveal Animations */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -105,18 +111,29 @@
         transform: translateY(0);
       }
 
+      /* Delay Utilities */
       .delay-100 { transition-delay: 100ms; }
       .delay-200 { transition-delay: 200ms; }
       .delay-300 { transition-delay: 300ms; }
       .delay-400 { transition-delay: 400ms; }
       .delay-500 { transition-delay: 500ms; }
     </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
 
   <body>
     <div id="root"></div>
 
-    <!-- IMPORTANTE: este script liga o React -->
+    <!-- IMPORTANTE: isso liga seu React/Vite -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
