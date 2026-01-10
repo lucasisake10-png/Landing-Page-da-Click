@@ -3,95 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Click | Marketing & Performance</title>
+    <title>Click | Estratégias de Venda High-Ticket</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
       :root {
-        --primary-purple: #a855f7;
+        --primary-purple: #9333ea;
+        --dark-bg: #050505;
       }
-      html {
-        scroll-behavior: smooth;
-        /* Compensa a altura do header fixo (aprox 100px) */
-        scroll-padding-top: 100px;
-      }
+      
       body {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: #000000;
+        background-color: var(--dark-bg);
         color: #ffffff;
         overflow-x: hidden;
       }
-      h1, h2, h3, .heading-font {
-        font-weight: 800;
-        letter-spacing: -0.05em;
-      }
-      .bg-primary { background-color: var(--primary-purple); }
-      .text-primary { color: var(--primary-purple); }
-      
-      .btn-nexus {
-        background-color: var(--primary-purple);
-        color: white;
-        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-        font-weight: 800;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        border-radius: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-size: 0.75rem;
-        position: relative;
-        overflow: hidden;
-      }
-      .btn-nexus:hover {
-        background-color: #ffffff;
-        color: #000000;
-        transform: translateY(-4px);
-        box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--primary-purple); }
+
+      /* Glow Effects */
+      .glow-purple {
+        box-shadow: 0 0 50px -10px rgba(147, 51, 234, 0.4);
       }
       
-      .triangle-marker {
+      .text-glow {
+        text-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+      }
+
+      /* Typography Helpers */
+      .text-outline {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        color: transparent;
+      }
+
+      /* Glassmorphism */
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Logo Triangle Motif */
+      .triangle-right {
         width: 0;
         height: 0;
-        border-top: 0.6em solid transparent;
-        border-bottom: 0.6em solid transparent;
-        border-left: 1em solid var(--primary-purple);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 12px solid var(--primary-purple);
         display: inline-block;
       }
 
-      .section-white {
-        background-color: #ffffff;
-        color: #000000;
+      /* Animations */
+      @keyframes triangle-pulse {
+        0%, 100% { transform: translateX(0) scale(1); opacity: 0.8; }
+        50% { transform: translateX(4px) scale(1.1); opacity: 1; }
       }
 
-      ::selection {
-        background: var(--primary-purple);
-        color: white;
+      .animate-triangle {
+        animation: triangle-pulse 3s ease-in-out infinite;
       }
 
-      @keyframes shine {
-        100% { left: 125%; }
+      /* Buttons */
+      .btn-premium {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
       }
-      .animate-shine {
-        animation: shine 0.8s ease-in-out;
+      
+      .btn-premium::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
+        z-index: -1;
+      }
+      
+      .btn-premium:hover::before {
+        left: 100%;
       }
 
-      .bg-typography {
-        -webkit-text-stroke: 1.5px rgba(255,255,255,0.12);
-        color: rgba(255, 255, 255, 0.02);
-        text-transform: uppercase;
-        font-weight: 900;
-        white-space: nowrap;
-        pointer-events: none;
-      }
-
-      /* Scroll Animation Classes */
+      /* Reveal Animations */
       .reveal {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        will-change: opacity, transform;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       }
       
       .reveal.active {
@@ -99,6 +105,7 @@
         transform: translateY(0);
       }
 
+      /* Delay Utilities */
       .delay-100 { transition-delay: 100ms; }
       .delay-200 { transition-delay: 200ms; }
       .delay-300 { transition-delay: 300ms; }

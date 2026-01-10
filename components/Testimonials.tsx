@@ -4,70 +4,58 @@ const Testimonials: React.FC = () => {
   const reviews = [
     {
       name: 'Ricardo Silva',
-      role: 'CEO - TechStore',
-      content: 'A Click não é uma agência comum. Eles entendem de negócios, não apenas de botões no Gerenciador de Anúncios.',
+      role: 'CEO - TechStore Brasil',
+      content: 'A Click não é uma agência comum. Eles entendem de estratégia de negócio, não apenas de apertar botões no Gerenciador. Nosso ROI saltou de 3x para 11x em 4 meses.'
     },
     {
       name: 'Amanda Costa',
-      role: 'Marketing - EcoFlow',
-      content: 'Nossa taxa de conversão saltou de 2% para 11% com a nova estratégia de Landing Pages.',
+      role: 'Marketing - EcoFlow Solutions',
+      content: 'Nossa taxa de conversão de leads era horrível. Com a nova Landing Page da Click e a estratégia de tráfego, hoje recebemos leads muito mais qualificados.'
+    },
+    {
+      name: 'Pedro Mello',
+      role: 'Founder - HighTicket Mentoria',
+      content: 'Finalmente uma assessoria que fala a língua do empresário. Dados precisos, suporte impecável e resultados que aparecem no extrato bancário todo dia.'
     }
   ];
 
-  const handleScrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="testimonials" className="relative py-40 bg-black overflow-hidden border-t border-white/5">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" 
-          alt="People background" 
-          className="w-full h-full object-cover blur-[100px] opacity-20 scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black z-1"></div>
-      </div>
-
+    <section id="testimonials" className="py-24 md:py-40 bg-[#050505] relative overflow-hidden border-t border-white/5">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-600/5 blur-[150px] pointer-events-none"></div>
+      
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start mb-20">
-          <div>
-            <div className="triangle-marker mb-12" style={{ fontSize: '2.5rem' }}></div>
-            <h2 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-12 text-white leading-none uppercase">
-              RESULTADOS <br /> <span className="text-primary">REAIS.</span>
-            </h2>
-            <p className="text-gray-400 text-xl font-medium leading-relaxed max-w-lg">
-              O depoimento dos nossos clientes fala mais do que qualquer apresentação de vendas. Não vendemos esperança, vendemos lucro através da Metodologia CAEG.
-            </p>
-          </div>
-          
-          <div className="space-y-8">
-            {reviews.map((r, i) => (
-              <div 
-                key={i} 
-                className="group relative p-12 bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl transition-all duration-500 hover:bg-white/10 hover:border-primary/30"
-              >
-                <div className="absolute top-0 left-0 w-1 h-0 bg-primary group-hover:h-full transition-all duration-500 rounded-l-2xl"></div>
-                <p className="text-2xl font-semibold mb-8 text-white leading-snug">"{r.content}"</p>
-                <div>
-                  <h4 className="font-bold uppercase tracking-widest text-sm text-white">{r.name}</h4>
-                  <p className="text-primary text-[10px] font-bold uppercase tracking-widest mt-2">{r.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-24 reveal">
+          <span className="text-purple-500 text-[10px] font-black uppercase tracking-[0.5em] mb-6 block">Voz de quem escala</span>
+          <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
+            Quem confia <br /> <span className="text-white italic">não volta atrás</span>
+          </h2>
         </div>
 
-        <div className="reveal delay-500 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {reviews.map((r, i) => (
+            <div key={i} className="reveal glass p-10 rounded-[2.5rem] border-white/5 hover:border-purple-600/20 transition-all duration-500 group flex flex-col" style={{ transitionDelay: `${i * 150}ms` }}>
+              <div className="flex gap-1 mb-6 text-yellow-500">
+                {[...Array(5)].map((_, idx) => (
+                  <svg key={idx} viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                ))}
+              </div>
+              <p className="text-gray-400 text-lg italic leading-relaxed mb-10 group-hover:text-white transition-colors flex-grow">
+                "{r.content}"
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <h4 className="font-black uppercase text-xs tracking-widest text-white">{r.name}</h4>
+                <p className="text-purple-600 text-[9px] font-black uppercase tracking-widest mt-1">{r.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-24 text-center reveal delay-300">
           <button 
-            onClick={handleScrollToContact}
-            className="btn-nexus px-12 py-6 text-base"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
+            className="btn-premium px-10 py-5 bg-white text-black rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-purple-600 hover:text-white transition-all"
           >
-            Seja o nosso próximo caso de sucesso
+            Seja o próximo case de sucesso
           </button>
         </div>
       </div>

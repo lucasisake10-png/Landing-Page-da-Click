@@ -3,16 +3,16 @@ import React from 'react';
 const Services: React.FC = () => {
   const services = [
     {
-      title: 'Tráfego Pago',
-      desc: 'Gestão estratégica de anúncios no Google e Meta com foco absoluto em ROI.'
+      title: 'Tráfego Estratégico',
+      desc: 'Gestão de Sistemas de Aquisição no Google e Meta com foco absoluto em escala e ROI.'
     },
     {
-      title: 'Páginas de Elite',
-      desc: 'Landing Pages ultra-velozes e otimizadas com gatilhos mentais de conversão.'
+      title: 'Arquitetura Digital',
+      desc: 'Estruturas de Vendas ultra-velozes e otimizadas com gatilhos mentais de conversão.'
     },
     {
-      title: 'Full Strategy',
-      desc: 'Otimização de todo o seu funil de vendas para reduzir o custo por aquisição.'
+      title: 'Engenharia de Vendas',
+      desc: 'Otimização de todo o seu ecossistema digital para reduzir o custo por aquisição de clientes.'
     }
   ];
 
@@ -36,11 +36,11 @@ const Services: React.FC = () => {
           <div className="max-w-3xl reveal">
             <div className="triangle-marker mb-6 md:mb-8" style={{ fontSize: '1.5rem' }}></div>
             <h2 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none uppercase">
-              O que fazemos <br /> <span className="text-primary">de melhor.</span>
+              Projetamos sua <br /> <span className="text-primary">Escala.</span>
             </h2>
           </div>
           <p className="text-slate-500 font-bold uppercase tracking-widest text-[9px] md:text-xs max-w-xs leading-loose reveal delay-100">
-            Estratégias validadas para quem não aceita resultados medianos.
+            Sistemas de aquisição validados para quem não aceita resultados medianos.
           </p>
         </div>
 

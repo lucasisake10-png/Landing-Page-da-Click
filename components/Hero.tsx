@@ -1,101 +1,66 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
-  const handleScroll = (id: string) => {
-    const element = document.getElementById(id);
+  const scrollToDiagnostic = () => {
+    const element = document.getElementById('diagnostic');
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const avatars = [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
-  ];
+  const bgImageUrl = "https://rawcdn.githack.com/lucasisake10-png/click/1beca0af0aa3a47f70635303e07975e16d745f3d/5454.png";
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-28 pb-16 md:pt-20 bg-black overflow-hidden">
-      {/* Tipografia de Fundo - Opacidade mínima no mobile para não interferir na leitura */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none overflow-hidden opacity-[0.03] md:opacity-100 z-0">
-        <span className="bg-typography text-[25vw] md:text-[22vw] leading-[0.8] tracking-tighter">CLIQUE</span>
-        <span className="bg-typography text-[25vw] md:text-[22vw] leading-[0.8] tracking-tighter">CONVERTA</span>
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-[#050505]">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src={bgImageUrl} 
+          alt="Background" 
+          className="w-full h-full object-cover opacity-40 scale-105"
+          style={{ filter: 'brightness(0.4) contrast(1.2) saturate(0.8)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#050505]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+        <div className="absolute inset-0 bg-purple-900/5 mix-blend-color"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl">
-          <div className="reveal inline-flex items-center gap-3 md:gap-4 mb-8 md:mb-12">
-            <div className="h-[2px] w-8 md:w-12 bg-primary"></div>
-            <span className="text-primary text-[9px] md:text-[10px] font-extrabold tracking-[0.3em] md:tracking-[0.5em] uppercase">Assessoria Digital de Elite</span>
-          </div>
-          
-          <h1 className="reveal delay-100 text-3xl sm:text-5xl md:text-8xl lg:text-[9.5rem] font-extrabold leading-[1.1] md:leading-[0.9] mb-8 md:mb-12 tracking-tighter text-white uppercase">
-            Mais Vendas, <br />
-            Menos <span className="text-primary">Promessa<span className="inline-block w-2 h-2 md:w-6 md:h-6 bg-primary ml-1 md:ml-2 mb-1 md:mb-2"></span></span>
-          </h1>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start">
-            <div className="lg:col-span-6 reveal delay-200">
-              <p className="text-lg md:text-2xl text-white md:text-gray-400 leading-relaxed md:leading-tight font-medium max-w-xl mb-10 md:mb-12">
-                Design de alta performance e tráfego pago focado na única métrica que importa: <span className="text-primary font-bold">lucro real no seu bolso.</span>
-              </p>
+      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[0%] right-[-5%] w-[45%] h-[45%] bg-indigo-600/10 blur-[130px] rounded-full pointer-events-none"></div>
 
-              {/* Social Proof Section (Avatar Stack) */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 mb-12 md:mb-12">
-                <div className="flex -space-x-3 md:-space-x-4">
-                  {avatars.map((url, idx) => (
-                    <div 
-                      key={idx} 
-                      className="w-9 h-9 md:w-12 md:h-12 rounded-full border-2 border-black overflow-hidden bg-gray-800 ring-1 md:ring-2 ring-white/5"
-                    >
-                      <img 
-                        src={url} 
-                        alt={`Cliente ${idx + 1}`} 
-                        className="w-full h-full object-cover grayscale"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white font-extrabold text-base md:text-xl tracking-tight leading-none mb-1">+200 Clientes atendidos</span>
-                  <div className="flex gap-1">
-                    {[1,2,3,4,5].map(star => (
-                      <svg key={star} className="w-3 h-3 text-primary fill-current" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-              </div>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex flex-col items-center">
+            <div className="reveal inline-flex items-center gap-3 px-4 py-2 rounded-full border border-purple-500/20 bg-purple-500/5 mb-8 backdrop-blur-sm">
+              <div className="triangle-right scale-50"></div>
+              <span className="text-purple-400 text-[9px] font-black uppercase tracking-[0.4em]">Arquitetura Digital de Performance</span>
             </div>
             
-            <div className="lg:col-span-6 flex flex-col gap-4 md:gap-6 lg:justify-end lg:pt-8 reveal delay-300">
-              <button 
-                onClick={() => handleScroll('contact')}
-                className="btn-nexus px-8 md:px-12 py-5 md:py-6 text-sm md:text-base group overflow-hidden w-full sm:w-auto min-h-[60px]"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Começar Agora
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </span>
-              </button>
-              
-              <button 
-                onClick={() => handleScroll('services')}
-                className="border-2 border-white/10 px-8 md:px-12 py-5 md:py-6 rounded-xl text-[10px] md:text-[11px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center flex items-center justify-center w-full sm:w-auto min-h-[60px]"
-              >
-                Nossas Soluções
-              </button>
+            <h1 className="reveal delay-100 text-4xl md:text-7xl font-black uppercase leading-[1.1] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              Projetamos sua <span className="text-purple-600 italic">Estrutura de Vendas</span> com Tráfego Pago para Lucro Real.
+            </h1>
+
+            <div className="reveal delay-200 mb-12">
+              <p className="text-base md:text-xl text-gray-400 max-w-2xl font-medium leading-relaxed mx-auto">
+                Se você já tentou de tudo e não teve retorno, o problema não é o seu produto.
+              </p>
+              <p className="text-base md:text-xl text-gray-300 max-w-2xl font-bold leading-relaxed mx-auto mt-2">
+                Nós implementamos <span className="text-white">Sistemas de Aquisição de Clientes</span> validados para quem não quer apenas seguidores, quer faturamento previsível.
+              </p>
             </div>
+
+            <button 
+              onClick={scrollToDiagnostic}
+              className="reveal delay-300 btn-premium px-10 py-6 bg-purple-600 text-white rounded-full font-black uppercase tracking-widest text-[12px] glow-purple hover:bg-purple-700 transition-all hover:scale-105 active:scale-95 group relative z-20 shadow-2xl"
+            >
+              <span>Quero vender mais</span>
+              <div className="w-0 h-0 border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent border-l-[8px] border-l-white transition-transform group-hover:translate-x-1 ml-2"></div>
+            </button>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-20 hidden md:block">
+        <div className="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
       </div>
     </section>
   );
