@@ -7,6 +7,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ scrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const logoUrl = "https://rawcdn.githack.com/lucasisake10-png/click/0095b3751b793b5f349d2f9708f6c4bda4ecadee/click1.png";
+  
+  const whatsappUrl = "https://wa.me/5511945620693?text=Olá! Vim pela landing da Click Assessoria Digital. Gostaria de um diagnóstico estratégico, para entender o que faz sentido para o meu negócio.";
+  const instagramUrl = "https://www.instagram.com/clickdigitalhub/";
 
   const navItems = [
     { label: 'Problemas', href: 'problems' },
@@ -109,14 +112,14 @@ const Header: React.FC<HeaderProps> = ({ scrolled }) => {
           </div>
         </button>
 
-        {/* FULLSCREEN MOBILE MENU - RECONSTRUÍDO */}
+        {/* FULLSCREEN MOBILE MENU */}
         <div className={`fixed inset-0 bg-black z-[10000001] lg:hidden transition-all duration-500 flex flex-col ${
           isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
         }`}>
           {/* Top Spacing for fixed header area */}
           <div className="h-20 w-full flex-shrink-0"></div>
 
-          {/* Links Area - Scrollable if needed */}
+          {/* Links Area */}
           <div className="flex-grow flex flex-col justify-center px-10 py-6">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item, index) => (
@@ -135,7 +138,7 @@ const Header: React.FC<HeaderProps> = ({ scrolled }) => {
             </nav>
           </div>
 
-          {/* Bottom Area - Fixed spacing */}
+          {/* Bottom Area */}
           <div className="p-10 border-t border-white/5 space-y-8 bg-black">
             <button 
               onClick={(e) => handleNavClick(e, 'diagnostic')}
@@ -147,10 +150,10 @@ const Header: React.FC<HeaderProps> = ({ scrolled }) => {
             
             <div className="flex justify-between items-center">
               <div className="flex gap-6">
-                <a href="#" className="text-[9px] font-black uppercase tracking-widest text-gray-500">Instagram</a>
-                <a href="#" className="text-[9px] font-black uppercase tracking-widest text-gray-500">WhatsApp</a>
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-[9px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Instagram</a>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-[9px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">WhatsApp</a>
               </div>
-              <p className="text-[8px] font-black uppercase tracking-widest text-gray-800">CLICK © 2024</p>
+              <p className="text-[7px] font-black uppercase tracking-widest text-gray-800">Todos os direitos reservados á Click Assessoria Digital</p>
             </div>
           </div>
         </div>

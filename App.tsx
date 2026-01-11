@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Identification from './components/Identification';
-import ObjectionBreak from './components/ObjectionBreak';
 import BeliefBreaker from './components/BeliefBreaker';
+import BigNumbers from './components/BigNumbers';
 import Authority from './components/Authority';
 import Process from './components/Process';
 import Filter from './components/Filter';
 import Diagnostic from './components/Diagnostic';
 import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
-import AIAssistant from './components/AIAssistant';
+import Footer from '././components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Testimonials from './components/Testimonials';
 import CTASection from './components/CTASection';
@@ -58,8 +57,8 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <Identification />
-        <ObjectionBreak />
         <BeliefBreaker />
+        <BigNumbers />
         <Authority />
         <Process />
         <CTASection />
@@ -70,7 +69,6 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
-      <AIAssistant />
       <WhatsAppButton />
     </div>
   );

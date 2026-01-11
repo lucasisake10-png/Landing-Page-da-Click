@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
             </div>
             
             <h1 className="reveal delay-100 text-4xl md:text-7xl font-black uppercase leading-[1.1] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-              Projetamos sua <span className="text-purple-600 italic">Estrutura de Vendas</span> com Tráfego Pago para Lucro Real.
+              Marketing de verdade para quem <span className="text-purple-600 italic">já tentou de tudo</span> e agora precisa vender.
             </h1>
 
             <div className="reveal delay-200 mb-12">
