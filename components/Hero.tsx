@@ -30,11 +30,6 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-col items-center">
-            <div className="reveal inline-flex items-center gap-3 px-4 py-2 rounded-full border border-purple-500/20 bg-purple-500/5 mb-8 backdrop-blur-sm">
-              <div className="triangle-right scale-50"></div>
-              <span className="text-purple-400 text-[9px] font-black uppercase tracking-[0.4em]">Arquitetura Digital de Performance</span>
-            </div>
-            
             <h1 className="reveal delay-100 text-4xl md:text-7xl font-black uppercase leading-[1.1] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
               Marketing de verdade para quem <span className="text-purple-600 italic">já tentou de tudo</span> e agora precisa vender.
             </h1>
